@@ -4,7 +4,7 @@ n: float = 0.0002
 p: float = 0.5
 G: float = 0.75
 
-def music_synthesis(grid_size: int = 4, iterations: int = 3, start_point: list[int] = [2, 2]):
+def music_synthesis(grid_size: int = 4, iterations: int = 3, start_point: list = [2, 2]):
     u: np.array = np.zeros(shape=(grid_size, grid_size))
     u1: np.array = np.zeros(shape=(grid_size, grid_size))
     u1[start_point[0]][start_point[1]] = 1
@@ -29,7 +29,7 @@ def calculate_inner_elements(u: np.array, u1: np.array, u2: np.array, grid_size)
 
 def calculate_edge_elements(u, grid_size):
     result: np.array = u.copy()
-    for i in range(i, grid_size-1):
+    for i in range(1, grid_size-1):
         result[0][i] = G * result[1][i]
         result[grid_size-1][i] = G * result[grid_size-2][i]
         result[i][0] = G * result[i][1]
