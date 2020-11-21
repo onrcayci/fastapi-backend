@@ -3,7 +3,7 @@ from typing import List
 from numpy import ndarray
 from pydantic import BaseModel
 
-from simulation import music_synthesis
+from .simulation import music_synthesis
 
 app = FastAPI()
 
