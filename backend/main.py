@@ -14,15 +14,15 @@ class SimulationRequest(BaseModel):
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Backend developed using FastAPI!"}
 
 @app.get("/simulate", response_model=List[List[List[float]]])
-async def music_simulation():
+async def get_music_simulation():
     result = music_synthesis()
     return result
 
 @app.post("/simulate", response_model=List[List[List[float]]])
-async def music_simulation(simulation_request: SimulationRequest):
+async def post_music_simulation(simulation_request: SimulationRequest):
     result = music_synthesis(
         grid_size=simulation_request.grid_size,
         iterations=simulation_request.iterations,
