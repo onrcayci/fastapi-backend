@@ -1,0 +1,1 @@
+from .music_synthesis import music_synthesis
